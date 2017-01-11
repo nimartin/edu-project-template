@@ -24,6 +24,7 @@
     "react-hot-loader": "^3.0.0-beta.1",
     "react-loader": "^2.4.0",
     "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
@@ -35,6 +36,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "node-find-files": "0.0.4",
-    "node-uuid": "^1.4.7"
+    "node-uuid": "^1.4.7",
+    "react-router": "^3.0.0"
   }
 }
