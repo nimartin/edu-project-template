@@ -25,22 +25,38 @@ api.get('/',function(req,res){
 });
 
 api.get('/:id',function(req,res){
-	fs.readFile(config.data+"/"+req.params.id+".json", function(err,data) {
-		if(err) return console.log(err);
-		console.log(data);
+	var file = config.data+"/"+req.params.id+".json";
+	fs.exists(file, (exists) => {
+		if(exists) {
+			res.status(200).sendFile(file);	
+		}
+		else{
+			res.sendStatus(404);
+		}
 	});
-  	res.sendStatus(200);
+	
 });
 
 api.post('/',function(req,res){
 	var note = req.body;
 	note.id = uuid.v4();
-	note.date = Date.now() / 1000;
-	console.log(note);
+	note.date = parseInt(Date.now() / 1000);
 	fs.writeFile(config.data+"/"+note.id+".json",JSON.stringify(note), function(err) {
 		if(err) return console.log("err");
 	});
 	res.status(201).send(JSON.stringify({id: note.id}));
+});
+
+api.delete('/:id',function(req,res){
+	var file = config.data+"/"+req.params.id+".json";
+	fs.unlink(file, (err) => {
+		  if (err) {
+		  		res.sendStatus(404, 'Page Not Found');
+		  };
+		  console.log('Supression effectué');
+		  res.sendStatus(204);
+});
+	
 });
 
 module.exports = api;
