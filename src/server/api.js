@@ -8,19 +8,31 @@ const uuid = require('node-uuid');
 
 
 api.get('/',function(req,res){
-	var finder = new FindFinder({
-		rootFolder : config.data
-	});
-	var files = [];
-	finder.on("match", function(strPath, stat) {
-	    	files.push(strPath);
-	}).on('complete',function(){
-		if(files.length == 0){
-			console.log('rien');
-			return res.sendStatus(204);
-				
-		}	
-	}).startSearch();
+	
+ 	var content = [];
+    var files = [];
+    var finder = new FindFinder({
+        rootFolder : config.data,
+        filterFunction: function () {
+                return true;
+        }
+    });
+
+    finder.on('match', function(strPath, stat) {
+        //console.log(strPath + " - " + stat.mtime);
+        files.push(strPath);
+    }).on('complete', function() {
+        console.log(files.length);
+        if(files.length == 0) return res.status(204).send('No notes found');
+        
+        for(file of files) {
+            content.push(JSON.parse(fs.readFileSync(file)))
+        };
+
+        return res.status(200).send(content);
+    });
+
+    finder.startSearch();
 	
 });
 

@@ -9,12 +9,38 @@ const store = configure();
 
 const history = syncHistoryWithStore(browserHistory, store);
 
-export default class Client extends Component{
-    findAll(){
-        fetch('/notes')
-        .then(res => res.json())
-        .then(json => dispatch({
-            type: 'fetchData', 
-            data: json
-        }));
+
+
+class Client {
+    findAll(callback){
+		fetch("/notes")
+		  .then(function (response) {
+		  	return response.json()
+		  })
+		  .then(callback);
     }
+    findOneById(callback,id){
+		fetch("/notes/"+id)
+		  .then(function (response) {
+		  	return response.json()
+		  })
+		  .then(callback);
+    }
+
+    createOne(note){
+    	fetch('/notes', {
+		  method: 'POST',
+		  headers: {
+		    'Accept': 'application/json',
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+		    title: note.title,
+		    content: note.content,
+		  })
+		})
+    }
+ }
+
+const client = new Client();
+export default client;
