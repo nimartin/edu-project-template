@@ -38,6 +38,7 @@ api.get('/',function(req,res){
 
 api.get('/:id',function(req,res){
 	var file = config.data+"/"+req.params.id+".json";
+	console.log("wallah");
 	fs.exists(file, (exists) => {
 		if(exists) {
 			res.status(200).sendFile(file);	
@@ -63,7 +64,7 @@ api.delete('/:id',function(req,res){
 	var file = config.data+"/"+req.params.id+".json";
 	fs.unlink(file, (err) => {
 		  if (err) {
-		  		res.sendStatus(404, 'Page Not Found');
+		  		return res.sendStatus(404, 'Page Not Found');
 		  };
 		  console.log('Supression effectué');
 		  res.sendStatus(204);

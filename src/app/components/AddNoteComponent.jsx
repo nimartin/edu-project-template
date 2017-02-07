@@ -23,8 +23,8 @@ export default class AddNoteCompenent extends Component {
 
 	    this.state = {
 	      note: {
-	      	title:null,
-	      	content:null
+	      	title:"",
+	      	content:""
 	      }
 	    };
 
@@ -53,18 +53,21 @@ export default class AddNoteCompenent extends Component {
   
     render() {
     	return (
-        	<form onSubmit={this.handleSubmit}>
-		        <label>
-		          Title:
-		          <input name="title" type="text" value={this.state.note.title} onChange={this.handleInputChange} />
-		        </label>
-		        <br />
-		        <label>
-		          Content:
-		          <input name="content" type="text" value={this.state.note.content}  onChange={this.handleInputChange} />
-		        </label>
-		        <input type="submit" value="Submit" />
-	      	</form>
+    		<div className="container">
+	    		<h3 >Add a note</h3>
+	        	<form  onSubmit={this.handleSubmit}>
+			        <label>
+			          Title:
+			          <input name="title" type="text" value={this.state.note.title} onChange={this.handleInputChange} />
+			        </label>
+			        <br />
+			        <label>
+			          Content:
+			          <input name="content" type="text" value={this.state.note.content}  onChange={this.handleInputChange} />
+			        </label>
+			        <input className="waves-effect waves-light btn" type="submit" value="Submit" />
+		      	</form>
+	      	</div>
         )
     }
 };

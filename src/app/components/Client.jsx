@@ -19,7 +19,7 @@ class Client {
 		  })
 		  .then(callback);
     }
-    findOneById(callback,id){
+    findOneById(id,callback){
 		fetch("/notes/"+id)
 		  .then(function (response) {
 		  	return response.json()
@@ -40,6 +40,21 @@ class Client {
 		  })
 		})
     }
+
+    removeOne(idNote){
+    	fetch("/notes/"+idNote, {
+		  method: 'DELETE',
+		  headers: {
+		    'Accept': 'application/json',
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+		    id: idNote,
+		  })
+		})
+    }
+
+
  }
 
 const client = new Client();
