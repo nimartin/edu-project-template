@@ -34,10 +34,14 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "es6-promise": "^4.0.5",
     "express": "^4.14.0",
     "fs-extra": "^2.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "node-find-files": "0.0.4",
     "node-uuid": "^1.4.7",
-    "react-router": "^3.0.0"
+    "react-addons-update": "^15.4.2",
+    "react-router": "^3.0.0",
+    "react-timestamp": "^3.3.0"
   }
 }

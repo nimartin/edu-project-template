@@ -7,6 +7,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import configure from './store';
 const store = configure();
 const history = syncHistoryWithStore(browserHistory, store);
+const Timestamp = require('react-timestamp');
+
 import client from './Client';
 
 export default class Note extends Component {
@@ -43,11 +45,11 @@ export default class Note extends Component {
     				<h3 className="center">A Note</h3>
 					<div className="card grey lighten-5 ">
 						<div className="card-content ">
-						  <span className="card-title darken-1">{this.state.data.title} - {this.state.data.date}  </span>
+						  <span className="card-title darken-1">{this.state.data.title} -  <Timestamp time={this.state.date} format='date'/> </span>
 						  <p>{this.state.data.content}</p>
 						</div>
 						<div className="card-action">
-							<button className="waves-effect waves-light btn" onClick={this.removeNote}>Delete</button>
+							<button className="waves-effect waves-light btn red darken-2" onClick={this.removeNote}>Delete</button>
 						</div>
 					</div>
 				</div>

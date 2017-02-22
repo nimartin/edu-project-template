@@ -1,36 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head>
-        <meta charset="utf-8">
-            <title><%= htmlWebpackPlugin.options.title %></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-  		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  		<style>
-  			.pointer{
-  				cursor :pointer;
-  				text-decoration: none;
-  			}
-  			.center{
-  				text-align: center;
-  			}
-  		</style>
-    </head>
-    <body>
-    	<nav>
-			<div class="nav-wrapper">
-				<a href="/" class="brand-logo">Our Beautiful App</a>
-	        	<a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="/new" ><i class="material-icons">add</i></a>
-			</div>
-		</nav>
-        <div id="app"></div>
-    </body>
-</html>
- <!-- Compiled and minified CSS -->
+<head>
+  <meta charset="utf-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+   .pointer{
+    cursor :pointer;
+    text-decoration: none;
+  }
+  .center{
+    text-align: center;
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-  <!-- Compiled and minified JavaScript -->
+  main {
+    flex: 1 0 auto;
+    background-color: #FCFCFC;
+
+  }
+
+  .pull-right{
+    margin-left: auto;
+    margin-left: 0;
+  }
+
+  .brand-logo{
+    margin-left: 10px;
+  }
+
+  .margin-btn{
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card-title{
+    font-weight: 400!important;
+  }
+
+</style>
+</head>
+<main >
+ <nav>
+   <div class="nav-wrapper blue-grey darken-4 ">
+    <a href="/" class="brand-logo">Application ReactJS & NodeJS</a>
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light red darken-2" href="/new" ><i class="material-icons">add</i></a>
+  </div>
+</nav>
+<div id="app"></div>
+</main>
+<footer class="page-footer blue-grey darken-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Yvan Betremieux & Nicolas Martin</h5>
+        <p class="grey-text text-lighten-4">Cette application a été créée dans le cadre de la Licence Pro. Developpment applications Internet/Intranet</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Contact</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="mailto:nicolas.martin3@etu.udamail.fr">nicolas.martin3@etu.udamail.fr</a></li>
+          <li><a class="grey-text text-lighten-3" href="mailto:yvan.betremieux@etu.udamail.fr">yvan.betremieux@etu.udamail.fr</a></li>
+          <li><a class="grey-text text-lighten-3" href="mailto:nimartin.pro@gmail.com">nimartin.pro@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2016 Copyright 
+      <a class="grey-text text-lighten-4 right" href="https://github.com/nimartin">GitHub</a>
+    </div>
+  </div>
+</footer>
+</html>
+<!-- Compiled and minified CSS -->
+
+<!-- Compiled and minified JavaScript -->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+            <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  		<style>
+  			.pointer{
+  				cursor :pointer;
+  				text-decoration: none;
+  			}
+  			.center{
+  				text-align: center;
+  			}
+  		</style>
+    </head>
+    <body>
+    	<nav>
+			<div class="nav-wrapper">
+				<a href="/" class="brand-logo">Our Beautiful App</a>
+	        	<a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="/new" ><i class="material-icons">add</i></a>
+			</div>
+		</nav>
+        <div id="app"></div>
+    </body>
+</html>
+ <!-- Compiled and minified CSS -->
+
+  <!-- Compiled and minified JavaScript -->

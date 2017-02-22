@@ -2,10 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { Router, Route, browserHistory, applyRouterMiddleware, Link } from 'react-router';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
+import update from 'react-addons-update'; 
 
 import configure from './store';
 
 const store = configure();
+
+const Timestamp = require('react-timestamp');
+
 
 const history = syncHistoryWithStore(browserHistory, store);
 import client from './Client';
@@ -37,8 +41,9 @@ export default class ListNotes extends Component {
 	}
 
 	removeNote(event){
-		
-		console.log(event.target.getAttribute('data-id'));
+		this.setState({
+		  data: update(this.state.data, {$splice: [[event.target.getAttribute('data-index'), 1]]})
+		})
 		client.removeOne(event.target.getAttribute('data-id'));
 	}
 
@@ -46,29 +51,26 @@ export default class ListNotes extends Component {
     render() {
 
     	return (
-			<div>
+			<div className="row">
 				<h3 className="center">Notes</h3>
-				<table>
-				<thead>
-				  <tr>
-				      <th data-field="Title">Title</th>
-				      <th data-field="Content">Content</th>
-				  		<th data-field="Options">Options</th>
-				  </tr>
-				</thead>
-			    {this.state.data.map((note, index) => (
-			    	 <tbody key={note.id}>
-			    	 	
-						<tr>
-						
-							<td>{note.title}</td>
-							<td>{note.content}</td>
-							<td><Link to={ `/${note.id}` } ><i className="material-icons pointer" >input</i></Link><i data-id={note.id} onClick={this.removeNote} className="material-icons pointer" >delete</i></td>
-						</tr>
-			    	 </tbody>
+				
+			    
+{this.state.data.map((note, index) => (
+				<div className="col s6">
+			    <div className="card white ">
+						<div className="card-content ">
+						  <span className="card-title darken-1">{note.title} -  <Timestamp time={this.state.date} format='date'/>  </span>
+						</div>
+						<div className="card-action">
+							<button className="waves-effect waves-light btn red darken-2 " data-id={note.id} data-index={index} onClick={this.removeNote}>Delete</button>
+							<Link to={ `/${note.id}` } className="waves-effect waves-light btn pull-right"  >... See more</Link>
+						</div>
+					</div>
+				</div>
 			    ))}
-				 </table>
+
 			</div>
+					
         )
     }
-};
+	};
