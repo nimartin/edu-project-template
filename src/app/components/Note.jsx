@@ -43,9 +43,9 @@ export default class Note extends Component {
     	return (
     			<div>
     				<h3 className="center">A Note</h3>
-					<div className="card grey lighten-5 ">
+					<div className="card white ">
 						<div className="card-content ">
-						  <span className="card-title darken-1">{this.state.data.title} -  <Timestamp time={this.state.date} format='date'/> </span>
+						  <span className="card-title darken-1">{this.state.data.title} -  <Timestamp time={this.state.data.date} format='date'/> </span>
 						  <p>{this.state.data.content}</p>
 						</div>
 						<div className="card-action">

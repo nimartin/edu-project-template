@@ -56,13 +56,13 @@ export default class ListNotes extends Component {
 				{this.state.data.map((note, index) => (
 					<div className="col s6">
 					    <div className="card white ">
-								<div className="card-content ">
-								  <span className="card-title darken-1">{note.title} -  <Timestamp time={this.state.date} format='date'/>  </span>
-								</div>
-								<div className="card-action">
-									<button className="waves-effect waves-light btn red darken-2 " data-id={note.id} data-index={index} onClick={this.removeNote}>Delete</button>
-									<Link to={ `/${note.id}` } className="waves-effect waves-light btn pull-right"  >... See more</Link>
-								</div>
+
+							<div className="card-content ">
+								<i data-id={note.id} data-index={index} onClick={this.removeNote} className="material-icons pointer red-text darken-2 delete">delete</i>
+						    	<span className="card-title darken-1">{note.title} -  <Timestamp time={note.date} format='date'/>  </span>
+							</div>
+							<div className="card-action">
+								<Link to={ `/${note.id}` } className="waves-effect waves-light btn pull-right blue-grey darken-2"  >... See more</Link>
 							</div>
 						</div>
 					</div>

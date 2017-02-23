@@ -30,13 +30,18 @@
 
   }
 
+  .delete{
+    float:right;
+  }
+
   .pull-right{
     margin-left: auto;
     margin-left: 0;
   }
 
   .brand-logo{
-    margin-left: 10px;
+    margin-left: 40px;
+    margin-top: 40px;
   }
 
   .margin-btn{
@@ -48,18 +53,45 @@
     font-weight: 400!important;
   }
 
+  .top-nav{
+    height:150px;
+  }
+
+  .card{
+    -webkit-transition: all 0.5s ease; /* Safari and Chrome */
+    -moz-transition: all 0.5s ease; /* Firefox */
+    -o-transition: all 0.5s ease; /* IE 9 */
+    -ms-transition: all 0.5s ease; /* Opera */
+    transition: all 0.5s ease;
+  }
+
+  .card:hover  {
+    -webkit-transform:scale(1.03); /* Safari and Chrome */
+    -moz-transform:scale(1.03); /* Firefox */
+    -ms-transform:scale(1.03); /* IE 9 */
+    -o-transform:scale(1.03); /* Opera */
+     transform:scale(1.03);
+  }
+
+  h3{
+    margin: 40px 0;
+  }
+
 </style>
 </head>
-<main >
- <nav>
-   <div class="nav-wrapper blue-grey darken-4 ">
+<header>
+<nav class="top-nav">
+   <div class="nav-wrapper blue-grey darken-3 ">
     <a href="/" class="brand-logo">Application ReactJS & NodeJS</a>
     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red darken-2" href="/new" ><i class="material-icons">add</i></a>
   </div>
 </nav>
+</header>
+<main >
+ 
 <div id="app"></div>
 </main>
-<footer class="page-footer blue-grey darken-4">
+<footer class="page-footer blue-grey darken-3">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">

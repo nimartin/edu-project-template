@@ -38,7 +38,6 @@ api.get('/',function(req,res){
 
 api.get('/:id',function(req,res){
 	var file = config.data+"/"+req.params.id+".json";
-	console.log("wallah");
 	fs.exists(file, (exists) => {
 		if(exists) {
 			res.status(200).sendFile(file);	
